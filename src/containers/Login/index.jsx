@@ -18,9 +18,11 @@ import {
   RightContainer,
   Tittle,
 } from "./styles";
+import { useUser } from "../../hooks/UserContext";
 
 export function Login() {
   const navigate = useNavigate();
+  const { putUserData } = useUser();
 
   const schema = yup
     .object({
@@ -40,9 +42,7 @@ export function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    const {
-      data: { token },
-    } = await toast.promise(
+    const { data: userData } = await toast.promise(
       api.post("/session", {
         email: data.email,
         password: data.password,
@@ -60,8 +60,7 @@ export function Login() {
         error: "E-mail ou password estão incorretos.",
       }
     );
-
-    localStorage.setItem("token", token);
+    putUserData(userData);
   };
 
   return (
