@@ -1,5 +1,5 @@
 import Logo from "../../assets/logo.svg";
-import CartItems from "../../components/CartItems";
+import { CartItems } from "../../components/CartItems";
 import { Banner, Container, Content, Title } from "./styles";
 
 const Cart = () => {
