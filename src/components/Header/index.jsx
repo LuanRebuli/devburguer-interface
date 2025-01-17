@@ -12,12 +12,24 @@ import {
 import { UserCircle, ShoppingCart } from "@phosphor-icons/react";
 import { useNavigate, useResolvedPath } from "react-router-dom";
 import { useUser } from "../../hooks/UserContext";
+import { useEffect } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
   const { logout, userInfo } = useUser();
 
   const { pathname } = useResolvedPath();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("devburger:userData");
+    if (!userData) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  const userData = localStorage.getItem("devburger:userData");
+  const parsedData = userData ? JSON.parse(userData) : null;
+  const isAdmin = parsedData?.admin;
 
   function logoutUser() {
     logout();
@@ -35,6 +47,12 @@ const Header = () => {
             <HeaderLink to={"/cardapio"} $isActive={pathname === "/cardapio"}>
               Cardápio
             </HeaderLink>
+            <hr />
+            {isAdmin ? (
+              <HeaderLink to={"admin/pedidos"}>Painel</HeaderLink>
+            ) : (
+              <></>
+            )}
           </div>
         </Navigation>
         <Options>

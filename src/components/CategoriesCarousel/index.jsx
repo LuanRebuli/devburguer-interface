@@ -18,7 +18,7 @@ export function CategoriesCarousel() {
       setCategories(data);
     }
     loadCategories();
-  });
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -50,20 +50,7 @@ export function CategoriesCarousel() {
         itemClass="carousel-item"
       >
         {categories.map((category) => (
-          <Button
-            asChild
-            onClick={() =>
-              navigate(
-                {
-                  pathname: "/cardapio",
-                  search: `?categoria=${category.id}`,
-                },
-                {
-                  replace: true,
-                }
-              )
-            }
-          >
+          <Button key={category.id} to={`/cardapio?categoria=${category.id}`}>
             <ContainerItems key={category.id} imageUrl={category.url}>
               <p>{category.name}</p>
             </ContainerItems>

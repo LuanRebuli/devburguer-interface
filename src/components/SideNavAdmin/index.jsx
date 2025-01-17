@@ -1,16 +1,21 @@
 import { navLinks } from "./navLinks";
 import Logo from "../../assets/logo.svg";
 import { SignOut } from "@phosphor-icons/react";
-import { Container, Footer, NavLink, NavLinkContainer } from "./styles";
+import { Button, Container, Footer, NavLink, NavLinkContainer } from "./styles";
 import { useUser } from "../../hooks/UserContext";
-import { useResolvedPath } from "react-router-dom";
+import { useNavigate, useResolvedPath } from "react-router-dom";
 
 export function SideNavAdmin() {
   const { logout } = useUser();
   const { pathname } = useResolvedPath();
+
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <img src={Logo} alt="Logo" />
+      <Button asChild onClick={() => navigate("/")}>
+        <img src={Logo} alt="Logo" />
+      </Button>
       <NavLinkContainer>
         {navLinks.map((link) => (
           <NavLink

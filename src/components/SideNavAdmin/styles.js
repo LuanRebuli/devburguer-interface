@@ -12,6 +12,7 @@ export const Container = styled.nav`
     img {
         width: 60%;
         margin: 40px 0;
+        cursor: pointer;
     }
 `;
 
@@ -40,3 +41,9 @@ export const Footer = styled.footer`
     width: 100%;
     margin-top: auto;
 `;
+
+export const Button = styled.button`
+    background: transparent;
+    border: none;
+    cursor: default;
+`
