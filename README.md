@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/a/WtNgq9d" alt="Preview do Portfólio" width="600"/>
+  <img src="https://i.imgur.com/image.PNG" alt="Preview do Portfólio" width="600"/>
 </p>
 
 # 🍔 DevBurguer Interface
