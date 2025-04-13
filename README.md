@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://imgur.com/a/WtNgq9d" alt="Preview do Portfólio" width="600"/>
+</p>
+
 # 🍔 DevBurguer Interface
 
 Interface web desenvolvida como parte do projeto de conclusão do curso **DevClub**, para consumo da **DevBurguer API**. Essa aplicação simula o painel de controle de pedidos de uma hamburgueria.
